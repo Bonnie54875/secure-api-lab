@@ -5,14 +5,22 @@ const { isEmpty, isFloat }  = require ('validator');
 import { AppError } from '../errors/AppError';
 
 export async function validatorCreateProduct(req: Request, _res: Response, next: NextFunction): Promise<void> {
-  const { name, price } = req.body;
+  const { id, name, description, price } = req.body;
 
-  if (isEmpty(name || '')) {
-    throw new AppError('Product name is required');
+  if (isEmpty(id || '')) {
+    throw new AppError('ID is required');
   }
 
-  if (!price || !isFloat(String(price), { gt: 0 })) {
-    throw new AppError('Price must be a number greater than 0');
+  if (isEmpty(name || '')) {
+    throw new AppError('Name is required');
+  }
+
+  if (isEmpty(description || '')) {
+    throw new AppError('Description is required');
+  }
+
+  if (isEmpty(price || '')) {
+    throw new AppError('Price is required');
   }
 
   return next();

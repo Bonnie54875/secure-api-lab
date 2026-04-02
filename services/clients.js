@@ -58,5 +58,5 @@ const clients = [
 ];
 
 module.exports = {
-  Clients
+  clients
 };

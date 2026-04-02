@@ -11,5 +11,5 @@ export class ClientOrder {
     client_id!: number;
 
     @CreateDateColumn()
-    createdAt!: Date;
+    date!: Date;
 }

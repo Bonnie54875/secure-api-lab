@@ -11,7 +11,7 @@ export class OrderModels {
     approved_state!: boolean;
 
     @Column({ type: "string", length: 255 })
-    file_link!: boolean;
+    file_link!: string;
 
     @Column({ type: "number", default: 0, unique: true })
     client_model_id!: number;

@@ -1,10 +1,11 @@
 const { models }  = require( '../services/models.js'); // Ваш DataSource
+import { TimeLike } from 'fs';
 import { Models } from '../services/models.ts'; // Ваша entity
 
 class ProductService {
   private productRepository = models.getRepository(Models);
 
-  async create(productData: { id: number, client_id: number, date: Date, time: Date }): Promise<Models> {
+  async create(productData: { id: number, approved_state: boolean, name: string, description: string, file_link: string, model_used: number, uploaded_time: TimeLike, uploaded_date: Date }): Promise<Models> {
     const product = this.productRepository.create(productData);
 
     await this.productRepository.save(product);

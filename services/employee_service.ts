@@ -4,7 +4,7 @@ import { Employee } from '../services/employee.ts'; // Ваша entity
 class ProductService {
   private productRepository = employee.getRepository(Employee);
 
-  async create(productData: { id: number, client_id: number, date: Date, time: Date }): Promise<Employee> {
+  async create(productData: { id: number, name: string, position: string, email: string }): Promise<Employee> {
     const product = this.productRepository.create(productData);
 
     await this.productRepository.save(product);

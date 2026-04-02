@@ -4,7 +4,7 @@ import { EmployeeBranchInfo } from '../services/employee_branch_info.ts'; // Ð’Ð
 class ProductService {
   private productRepository = employee_branch_info.getRepository(EmployeeBranchInfo);
 
-  async create(productData: { id: number, client_id: number, date: Date, time: Date }): Promise<EmployeeBranchInfo> {
+  async create(productData: { id: number, date_of_employment: Date, branch_id: number, employee_id: number }): Promise<EmployeeBranchInfo> {
     const product = this.productRepository.create(productData);
 
     await this.productRepository.save(product);

@@ -1,10 +1,11 @@
 const { service_order }  = require( '../services/service_order.js'); // Ваш DataSource
+import { TimeLike } from 'fs';
 import { ServiceOrder } from '../services/service_order.ts'; // Ваша entity
 
 class ProductService {
   private productRepository = service_order.getRepository(ServiceOrder);
 
-  async create(productData: { id: number, client_id: number, date: Date, time: Date }): Promise<ServiceOrder> {
+  async create(productData: { id: number, check_time: TimeLike, check_date: Date, employee_checked: string, file_link: string, format: string, model_id: number, number_of_iterations: number, order_id: number, service_id: number }): Promise<ServiceOrder> {
     const product = this.productRepository.create(productData);
 
     await this.productRepository.save(product);
